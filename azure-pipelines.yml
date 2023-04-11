@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool:
+  vmImage: windows-latest
+
+steps:
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      ant -version
+      choco install ant -y --allow-downgrade --version=1.10.12
+      RefreshEnv.cmd
+      ant
+      ant -version
+
+- task: Ant@1
+  inputs:
+    buildFile: 'build.xml'
+    options: 
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'

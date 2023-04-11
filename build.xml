@@ -1,0 +1,8 @@
+<project name="HelloWorld" basedir="." default="main">
+
+    <target name="main">
+      <echo>Java/JVM version: ${ant.java.version}</echo> 
+      <echo>Java/JVM detail version: ${java.version}</echo> 
+    </target>
+
+</project>
